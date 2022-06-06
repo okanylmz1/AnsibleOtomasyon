@@ -1,0 +1,9 @@
+---
+- name: New playlist
+  hosts: localhost
+  tasks:
+    - name : Send ssh key
+      ansible.builtin.shell: /home/theadmin/AnsibleOtomasyon/rn.sh {{ item }}
+      become: true
+      loop: "{{ lookup('file', '/home/theadmin/AnsibleOtomasyon/server.txt').splitlines() }}"
+

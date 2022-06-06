@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name : Copy files to remote.
+      copy:
+        src: "{{ item }}"
+        dest: "$home/{{ item }}"
+      loop:
+        - copyfile.sh
+        - test_file1
+        - test_file2
+        
+    # Bu görevler, Debian & Ubuntu tabanlı sunucular içndir.
+    - name: Bu gorev, chmod gunceller.
+      ansible.builtin.file:
+        path: /home/copyfile.sh
+        owner: "root"
+        group: "root"
+        mode: "0777"

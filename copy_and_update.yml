@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Copy files to remote.
+      become: true
+      copy:
+        src: "/home/theadmin/AnsibleOtomasyon/file/{{item}}"
+        dest: /home
+        owner: root
+        group: root
+        mode: 0777
+      loop: 
+        - copyfile.sh
+        - test_file1
+        - test_file2
+
+    - name: Execute the script
+      command: sh /home/copyfile.sh

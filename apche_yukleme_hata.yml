@@ -1,0 +1,10 @@
+---
+
+  - hosts: all
+    become: true
+    tasks:
+
+# Bu görevler, Debian & Ubuntu tabanlı sunucular içndir.
+    - name: Bu gorev, apache2 yuklemesini gerceklestirir.
+      apt:
+        name: apache22

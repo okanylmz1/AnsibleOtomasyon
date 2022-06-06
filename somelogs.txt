@@ -1,0 +1,23 @@
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [2.12.100.182]
+ok: [2.12.100.81]
+
+TASK [Copy files to remote.] ***************************************************
+ok: [2.12.100.182] => (item=copyfile.sh)
+ok: [2.12.100.81] => (item=copyfile.sh)
+ok: [2.12.100.182] => (item=test_file1)
+ok: [2.12.100.81] => (item=test_file1)
+ok: [2.12.100.182] => (item=test_file2)
+ok: [2.12.100.81] => (item=test_file2)
+
+TASK [Execute the script] ******************************************************
+changed: [2.12.100.81]
+changed: [2.12.100.182]
+
+PLAY RECAP *********************************************************************
+2.12.100.182               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2.12.100.81                : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
